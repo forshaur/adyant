@@ -119,7 +119,7 @@ def label(tok: str) -> str:
             return tag
 
     if re.search(r"[-_]", tok) and len(tok) > 4:
-        return ":slug:"
+        return ":word:"
 
     return tok
 
