@@ -1,5 +1,5 @@
 
-# adyant  ([/ɑːdiˌjɑːnt/](https://www.wisdomlib.org/definition/adyant))
+# Adyant  ([/ɑːdiˌjɑːnt/](https://www.wisdomlib.org/definition/adyant))
 
 **Smart Markov-chain URL wordlist generator.**
 
