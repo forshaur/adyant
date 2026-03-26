@@ -1,0 +1,18 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Specific Files
+readme.md
+README.md
+
+# Build and Distribution Artifacts
+build/
+dist/
+*.egg-info/

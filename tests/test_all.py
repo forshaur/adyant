@@ -1,5 +1,9 @@
 """
+<<<<<<< HEAD
 tests/test_all.py — Basic tests for urlguesser.
+=======
+tests/test_all.py — Basic tests for adyant.
+>>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
 
 Run with:  pytest tests/
 """
@@ -7,12 +11,20 @@ Run with:  pytest tests/
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
 from adyant.tokens   import split, label
 from adyant.synonyms import canon
 from adyant.domains  import detect
 from adyant.expand   import expand
 from adyant.model    import Model
 from adyant          import guess
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
 SAMPLE_URLS = [
     "https://example.com/api/v1/users/profile",
     "https://example.com/api/v1/users/settings",
@@ -103,7 +115,11 @@ def test_model_trains():
 
 def test_model_next_probs():
     m = _trained()
+<<<<<<< HEAD
     from urlguesser.model import START
+=======
+    from adyant.model import START
+>>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
     probs = m.next_probs([START, START, "api"], site_type="api")
     assert isinstance(probs, dict)
     assert len(probs) > 0

@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "adyant"
@@ -33,4 +33,8 @@ Homepage = "https://github.com/forshaur/adyant"
 where = ["."]
 include = ["adyant*"]
 [tool.setuptools.package-data]
+<<<<<<< HEAD
 adyant = ["*.json"]
+=======
+adyant = ["*.json"]
+>>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
