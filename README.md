@@ -7,11 +7,16 @@
 
 Perfect for recon, directory busting, API enumeration, and bug bounty hunting.
 
-However, the quality of the output you get is highly influenced by the training corpus - so take care of that.
+#### Why to use `adyant`?
+* saves time by finding obvious and rare endpoints quickly.
+* higher hit rates with fewer requests.
+* reduces noice
+* can be integrated in workflows (stay ahead over other hackers who use old and slow wordlist fuzzing)
 
-This project is backed by my research, I'll publish the research paper soon.
-<img width="513" height="510" alt="image1" src="https://github.com/user-attachments/assets/f0d97cb6-702d-47fb-8875-09a805e2b8cf" />
+<img width="513" height="510" alt="image1" src="https://github.com/user-attachments/assets/dd8eacc7-2307-4928-a3bb-4e3dccda1f0b" />
 
+`however, quality of the output is highly influenced by the training corpus you provide it - keep that in mind.`
+additionally, this project is backed by my research which I'll attatch here once I publish it.
 
 ## Quick Start
 
