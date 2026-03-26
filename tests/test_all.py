@@ -7,14 +7,12 @@ Run with:  pytest tests/
 import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-
-from urlguesser.tokens   import split, label
-from urlguesser.synonyms import canon
-from urlguesser.domains  import detect
-from urlguesser.expand   import expand
-from urlguesser.model    import Model
-from urlguesser          import guess
-
+from adyant.tokens   import split, label
+from adyant.synonyms import canon
+from adyant.domains  import detect
+from adyant.expand   import expand
+from adyant.model    import Model
+from adyant          import guess
 SAMPLE_URLS = [
     "https://example.com/api/v1/users/profile",
     "https://example.com/api/v1/users/settings",
