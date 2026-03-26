@@ -33,8 +33,4 @@ Homepage = "https://github.com/forshaur/adyant"
 where = ["."]
 include = ["adyant*"]
 [tool.setuptools.package-data]
-<<<<<<< HEAD
 adyant = ["*.json"]
-=======
-adyant = ["*.json"]
->>>>>>> 8508fbc (Fix build backend, update test imports, and add CI workflow)
