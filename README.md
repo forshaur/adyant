@@ -1,5 +1,5 @@
 
-# adyant
+# adyant  ([/ɑːdiˌjɑːnt/](https://www.wisdomlib.org/definition/adyant))
 
 **Smart Markov-chain URL wordlist generator.**
 
@@ -10,15 +10,17 @@ Perfect for recon, directory busting, API enumeration, and bug bounty hunting.
 However, the quality of the output you get is highly influenced by the training corpus - so take care of that.
 
 This project is backed by my research, I'll publish the research paper soon.
+<img width="513" height="510" alt="image1" src="https://github.com/user-attachments/assets/f0d97cb6-702d-47fb-8875-09a805e2b8cf" />
 
-## Quick Start (Beginner-Friendly)
+
+## Quick Start
 
 ### 1. Install
 ```bash
 pip install adyant
 ```
 
-### 2. Train once (build your brain)
+### 2. Train once 
 ```bash
 # Train from a file of URLs
 adyant --train urls.txt --save model.json
@@ -40,7 +42,7 @@ adyant --model model.json --seed target.com/api/ -q --paths-only --format ffuf |
   ffuf -u https://target.com/FUZZ -w -
 ```
 
-**Useful flags for beginners:**
+**Useful flags:**
 - `--expand` → replaces `:num:`, `:uuid:`, etc. with real values from training
 - `--scores` → shows confidence next to each URL
 - `--format ffuf|burp|nuclei` → ready-to-paste output
