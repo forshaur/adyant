@@ -32,5 +32,5 @@ Homepage = "https://github.com/forshaur/adyant"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["adyant*"]
-[tool.setuptools.package-data]
-adyant = ["*.json"]
+[tool.setuptools]
+package-data = {"adyant" = ["*.json"]}
