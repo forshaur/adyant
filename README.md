@@ -20,6 +20,8 @@ additionally, this project is backed by my research which I'll attatch here once
 
 ## Quick Start
 
+#### Please raise an issue, if you encounter one.
+
 ### 1. Install
 ```bash
 pip install adyant
