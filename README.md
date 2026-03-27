@@ -10,17 +10,17 @@ Perfect for recon, directory busting, API enumeration, and bug bounty hunting.
 #### Why to use `adyant`?
 * saves time by finding obvious and rare endpoints quickly.
 * higher hit rates with fewer requests.
-* reduces noice
+* reduces noise
 * can be integrated in workflows (stay ahead over other hackers who use old and slow wordlist fuzzing)
 
 <img width="513" height="510" alt="image1" src="https://github.com/user-attachments/assets/dd8eacc7-2307-4928-a3bb-4e3dccda1f0b" />
 
 `however, quality of the output is highly influenced by the training corpus you provide it - keep that in mind.`
 additionally, this project is backed by my research which I'll attatch here once I publish it.
-
+**Please raise an issue, if you encounter one while using the tool.**
 ## Quick Start
 
-#### Please raise an issue, if you encounter one.
+**To find a training corpus you may refer to burpsuite history, wayback urls, crawl different sites that work on the same framework as your target or you can download billions of URLs from [here](https://console.cloud.google.com/bigquery) just make sure (and this is important) that you sort out the ones you want your model to learn from.**
 
 ### 1. Install
 ```bash
