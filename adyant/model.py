@@ -76,8 +76,8 @@ class Model:
         for url in clean:
             self._add(url)
 
-        print(f"[✓] Trained  urls={self.total}  ctxs={len(self.trans)}"
-              f"  vocab={len(self.vocab)}  learned_kw={len(self.learned_kw)}")
+        print(f"Trained  urls={self.total}  contexts={len(self.trans)}"
+              f"  vocab={len(self.vocab)}  learned keywords={len(self.learned_kw)}")
         return self
 
     def _mine_keywords(self, urls: list[str], min_freq: int, min_domains: int) -> None:

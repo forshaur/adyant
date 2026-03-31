@@ -82,17 +82,17 @@ def _build_parser():
     g.add_argument("--train", metavar="FILE",
                    help="Text file with one URL per line. Use - to read from stdin.")
     g.add_argument("--model", metavar="FILE",
-                   help="Load a model you saved from a previous run (faster than retraining).")
+                   help="Load a model you saved from a previous run.")
     src.add_argument("--min-freq",    metavar="N", type=int, default=5,
                      dest="min_freq",
                      help="How many times a token must appear to be treated as a keyword (default 5).")
-    src.add_argument("--min-domains", metavar="N", type=int, default=3,
+    src.add_argument("--min-domains", metavar="N", type=int, default=10,
                      dest="min_domains",
-                     help="How many distinct sites a token must appear on to be a keyword (default 3).")
+                     help="How many distinct sites a token must appear on to be a known keyword (such as api,admin etc. | default 10).")
 
     mdl = p.add_argument_group("model settings")
     mdl.add_argument("--context",   metavar="N", type=int,   default=3,    dest="order",
-                     help="How many path segments to use as context (default 3). Higher = smarter but slower.")
+                     help="How many path segments to use as context (default 3). Higher = smarter.")
     mdl.add_argument("--smoothing", metavar="D", type=float, default=0.75, dest="discount",
                      help="Controls how much probability is given to paths not seen in training (default 0.75).")
     mdl.add_argument("--save",      metavar="FILE",
@@ -122,8 +122,8 @@ def _build_parser():
                       help="How many candidates to track in beam mode (default 10).")
     tune.add_argument("--rarity",     metavar="R", type=float, default=1.0,
                       help="How aggressively to chase rare paths in rare/child mode. 0=off 1=full (default 1.0).")
-    tune.add_argument("--walks",      metavar="N", type=int,   default=5,
-                      help="How many walks to do in child mode (default 5). More = broader coverage.")
+    tune.add_argument("--walks",      metavar="N", type=int,   default=1,
+                      help="How many walks to do in child mode (default 1). More = broader coverage.")
     tune.add_argument("--per-area",   metavar="N", type=int,   default=3, dest="per_area",
                       help="Max paths per subtree in diverse mode before moving on (default 3).")
     tune.add_argument("--depth-push", metavar="B", type=float, default=0.3, dest="depth_bonus",
