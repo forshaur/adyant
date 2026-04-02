@@ -37,7 +37,12 @@ Get Adyant running locally in under 30 seconds.
 ```bash
 pip install adyant
 ```
-
+or we recommend you to clone the repo because we've included a training corpus and a model for testing purpose.
+```bash
+git clone https://github.com/forshaur/adyant.git
+cd adyant
+pip install .
+```
 **2. Train & Fuzz (Seamless Pipeline)**
 
 Feed it URLs, give it a seed, and pipe it directly into your favorite fuzzer:
