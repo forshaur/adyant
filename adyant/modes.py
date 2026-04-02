@@ -153,6 +153,34 @@ def deep(model, seed, count=50, depth=10, bonus=0.3):
     return sorted(found.items(), key=lambda x: -x[1])
 
 
+def punch(model, seed, count=50, depth=7, temp=1.0, beams=10,
+          rarity=1.0, walks=1, per_area=3, depth_bonus=0.3):
+    """
+    Full-spectrum sweep — runs every mode and merges the results.
+
+    Each of the 6 modes contributes up to `count` paths independently.
+    Duplicates are de-duplicated (best score kept), then the combined pool
+    is returned sorted by score, giving you up to count * 6 results total
+    so you always get broad, deep, rare, and structured coverage in one shot.
+    """
+    runners = [
+        lambda: sample(model, seed, count, depth, temp),
+        lambda: beam(model, seed, count, depth, beams),
+        lambda: rare(model, seed, count, depth, rarity),
+        lambda: child(model, seed, count, depth, walks, rarity),
+        lambda: diverse(model, seed, count, depth, per_area),
+        lambda: deep(model, seed, count, depth, depth_bonus),
+    ]
+
+    merged = {}
+    for run in runners:
+        for path, sc in run():
+            if path not in merged or sc > merged[path]:
+                merged[path] = sc
+
+    return sorted(merged.items(), key=lambda x: -x[1])
+
+
 # ── shared walk functions ─────────────────────────────────────────────────
 
 def _walk(model, seed, site, depth, temp, ip):

@@ -9,7 +9,7 @@ from .synonyms import canon
 from .domains  import detect, PROFILES
 from . import modes as _m
 
-MODES = ["sample", "beam", "rare", "child", "diverse", "deep"]
+MODES = ["sample", "beam", "rare", "child", "diverse", "deep", "punch"]
 
 _TAG = re.compile(r":[a-z0-9]+(?::[a-z0-9]+)?:")
 
@@ -73,6 +73,7 @@ def _build_parser():
             "  child   — given a path like /api/, lists everything under it\n"
             "  diverse — one result per area (/api/, /admin/, /auth/ etc.) before going deep\n"
             "  deep    — generates long, deeply nested paths like /api/v1/orders/42/items/7/refund\n"
+            "  punch   — runs ALL modes and merges results; up to count*6 URLs total\n"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -201,7 +202,8 @@ def main():
     seed_toks = [canon(t) for t in split(parsed.path, abstract=True)]
 
     site = args.site_type if args.site_type != "auto" else detect(seed_toks)
-    log(f"[→] seed={seed_str}  type={site or "?"}  mode={args.mode}  count={args.count}")
+    count_hint = f"up to {args.count * 6}" if args.mode == "punch" else str(args.count)
+    log(f"[→] seed={seed_str}  type={site or '?'}  mode={args.mode}  count={count_hint}")
 
     m = args.mode
     if   m == "sample":  results = _m.sample(model, seed_toks, args.count, args.depth, args.temp)
@@ -210,6 +212,9 @@ def main():
     elif m == "child":   results = _m.child(model, seed_toks, args.count, args.depth, args.walks, args.rarity)
     elif m == "diverse": results = _m.diverse(model, seed_toks, args.count, args.depth, args.per_area)
     elif m == "deep":    results = _m.deep(model, seed_toks, args.count, args.depth, args.depth_bonus)
+    elif m == "punch":   results = _m.punch(model, seed_toks, args.count, args.depth, args.temp,
+                                            args.beams, args.rarity, args.walks,
+                                            args.per_area, args.depth_bonus)
 
     if not results:
         log("[!] nothing generated — try a different mode, a broader seed, or more training data")
