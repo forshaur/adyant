@@ -69,7 +69,7 @@ def _build_parser():
             "-----\n"
             "  sample  — quick pass, generates the most obvious paths first\n"
             "  beam    — deterministic, same results every run, highest confidence\n"
-            "  rare    — digs for endpoints that almost never appear (hidden gems)\n"
+            "  rare    — digs for endpoints that almost never appear (hidden gems where are you?)\n"
             "  child   — given a path like /api/, lists everything under it\n"
             "  diverse — one result per area (/api/, /admin/, /auth/ etc.) before going deep\n"
             "  deep    — generates long, deeply nested paths like /api/v1/orders/42/items/7/refund\n"
@@ -83,9 +83,9 @@ def _build_parser():
                    help="Text file with one URL per line. Use - to read from stdin.")
     g.add_argument("--model", metavar="FILE",
                    help="Load a model you saved from a previous run.")
-    src.add_argument("--min-freq",    metavar="N", type=int, default=5,
+    src.add_argument("--min-freq",    metavar="N", type=int, default=30,
                      dest="min_freq",
-                     help="How many times a token must appear to be treated as a keyword (default 5).")
+                     help="How many times a token must appear to be treated as a keyword (default 30).")
     src.add_argument("--min-domains", metavar="N", type=int, default=10,
                      dest="min_domains",
                      help="How many distinct sites a token must appear on to be a known keyword (such as api,admin etc. | default 10).")
@@ -100,7 +100,7 @@ def _build_parser():
 
     sd = p.add_argument_group("seed — what to generate paths for")
     sd.add_argument("--seed", metavar="URL",
-                    help="The URL prefix to generate paths under, e.g. target.com/api/ or target.com/admin/. "
+                    help="e.g. target.com/api/ or target.com/admin/. "
                          "Can also be piped: echo target.com/api/ | adyant --model m.json")
     sd.add_argument("--site-type", metavar="TYPE", dest="site_type",
                     choices=list(PROFILES.keys()) + ["auto"], default="auto",

@@ -24,7 +24,8 @@ PROFILES: dict[str, set[str]] = {
     "cms": {
         "blog", "post", "posts", "page", "pages", "article",
         "category", "categories", "tag", "tags", "feed", "rss",
-        "author", "archive", "comment", "comments",
+        "author", "archive", "comment", "comments","plugin",
+        "vendor"
     },
     "admin": {
         "admin", "dashboard", "report", "reports", "audit",
