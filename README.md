@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="path/to/logo.png" alt="Adyant Logo" width="400">
+  <img src="https://github.com/user-attachments/assets/260131d0-ec6e-4e4a-81d0-6dd6401710c6" alt="Adyant Logo" width="400">
 </p>
 
 <h1 align="center">Adyant</h1>
@@ -21,8 +21,11 @@ Instead of brute-forcing targets with massive, static, and noisy wordlists, **Ad
 If you want to find hidden endpoints with fewer requests and less noise, you're in the right place.
 
 <p align="center">
-  <img src="path/to/demo.gif" alt="Adyant Demo" width="700">
+  <img src="https://github.com/user-attachments/assets/75cbe049-1b67-4813-ab48-f9f034f8eef9" alt="Adyant Demo" width="700">
 </p>
+
+we're taking log of probabilities, so the result is a negative value, don't worry about it.
+
 
 ---
 
@@ -42,7 +45,7 @@ Feed it URLs, give it a seed, and pipe it directly into your favorite fuzzer:
 Bash
 
 ```
-cat burp_urls.txt | adyant --train - --seed [target.com/api/](https://target.com/api/) -q --paths-only | ffuf -u [https://target.com/FUZZ](https://target.com/FUZZ) -w -
+cat burp_urls.txt | adyant --train - --seed https://target.com/api/ -q --paths-only | ffuf -u https://target.com/FUZZ -w -
 
 ```
 
@@ -67,7 +70,7 @@ Adyant is highly tunable. You can adjust the Markov context (`--context`), contr
 
 For advanced configurations, saving/loading models, and a detailed breakdown of all generation modes, please refer to the official documentation:
 
-👉 **Read the full Adyant Wiki**
+👉 **Read the full Adyant [Wiki](https://github.com/forshaur/adyant/wiki/)**
 
 ## 🤝 Community & Support
 
