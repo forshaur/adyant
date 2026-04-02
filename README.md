@@ -1,66 +1,79 @@
+<p align="center">
+  <img src="path/to/logo.png" alt="Adyant Logo" width="400">
+</p>
 
-# Adyant  ([/ɑːdiˌjɑːnt/](https://www.wisdomlib.org/definition/adyant))
+<h1 align="center">Adyant</h1>
 
-**Smart Markov-chain URL wordlist generator.**
+<p align="center">
+  <strong>Smart Markov-chain URL wordlist generator for fuzzing and recon.</strong>
+</p>
 
-`adyant` learns real URL patterns from any corpus (Burp history, Wayback, etc.) and generates highly relevant paths for a target site — far smarter than random brute-force wordlists.
+<p align="center">
+  <a href="https://pypi.org/project/adyant/"><img src="https://img.shields.io/pypi/v/adyant" alt="PyPI"></a>
+  <a href="https://github.com/forshaur/adyant/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/forshaur/adyant"><img src="https://img.shields.io/badge/Python-3.10%2B-brightgreen" alt="Python 3.10+"></a>
+</p>
 
-Perfect for recon, directory busting, API enumeration, and bug bounty hunting.
+<br>
 
-#### Why to use `adyant`?
-* saves time by finding obvious and rare endpoints quickly.
-* higher hit rates with fewer requests.
-* reduces noise
-* can be integrated in workflows (stay ahead over other hackers who use old and slow wordlist fuzzing)
+Instead of brute-forcing targets with massive, static, and noisy wordlists, **Adyant** learns from real URL patterns (via Burp history, Wayback, etc.) and generates statistically likely paths tailored specifically to your target. 
 
-<img width="513" height="510" alt="image1" src="https://github.com/user-attachments/assets/dd8eacc7-2307-4928-a3bb-4e3dccda1f0b" />
+If you want to find hidden endpoints with fewer requests and less noise, you're in the right place.
 
-`however, quality of the output is highly influenced by the training corpus you provide it - keep that in mind.`
-additionally, this project is backed by my research which I'll attatch here once I publish it.
-**Please raise an issue, if you encounter one while using the tool.**
-## Quick Start
+<p align="center">
+  <img src="path/to/demo.gif" alt="Adyant Demo" width="700">
+</p>
 
-**To find a training corpus you may refer to burpsuite history, wayback urls, crawl different sites that work on the same framework as your target or you can download billions of URLs from [here](https://console.cloud.google.com/bigquery) just make sure (and this is important) that you sort out the ones you want your model to learn from.**
+---
 
-### 1. Install
+## ⚡ Quickstart (Time-to-First-Value)
+
+Get Adyant running locally in under 30 seconds.
+
+**1. Install via pip**
 ```bash
 pip install adyant
 ```
 
-### 2. Train once 
-```bash
-# Train from a file of URLs
-adyant --train urls.txt --save model.json
+**2. Train & Fuzz (Seamless Pipeline)**
 
-# Or pipe from anywhere (waybackurls, Burp export, etc.)
-cat my_urls.txt | adyant --train - --save model.json
+Feed it URLs, give it a seed, and pipe it directly into your favorite fuzzer:
+
+Bash
+
+```
+cat burp_urls.txt | adyant --train - --seed [target.com/api/](https://target.com/api/) -q --paths-only | ffuf -u [https://target.com/FUZZ](https://target.com/FUZZ) -w -
+
 ```
 
-### 3. Generate wordlists
-```bash
-# Most likely paths under a prefix (default = sample mode)
-adyant --model model.json --seed target.com/api/ --count 100
+## ✨ The Value Proposition
 
-# One-level children only (best for fuzzing)
-adyant --model model.json --seed target.com/api/ --mode child --count 50
+Why replace your static wordlists with Adyant?
 
-# Pipe directly to ffuf (quiet + paths-only)
-adyant --model model.json --seed target.com/api/ -q --paths-only --format ffuf | \
-  ffuf -u https://target.com/FUZZ -w -
-```
+-   🧠 **Context-Aware Fuzzing:** It doesn't just guess `/admin`; it calculates the probability of `/admin/v2/metrics` based on real-world transition states.
+    
+-   🎯 **Multiple Attack Modes:** Need the most obvious paths? Use `sample`. Looking for deeply nested routes? Use `deep`. Hunting for hidden gems? Use `rare`.
+    
+-   🛠️ **Native Integrations:** Outputs natively formatted payloads for `ffuf`, `burp`, and `nuclei` with zero parsing scripts required.
+    
+-   🤖 **Smart Synonym Discovery:** Optional ML-driven clustering (via `scikit-learn` & `sentence_transformers`) identifies semantic domain clusters and token synonyms automatically.
+    
+-   📉 **Reduced Request Volume:** Higher hit rates with a fraction of the HTTP requests. Stay under WAF rate limits.
+    
 
-**Useful flags:**
-- `--expand` → replaces `:num:`, `:uuid:`, etc. with real values from training
-- `--scores` → shows confidence next to each URL
-- `--format ffuf|burp|nuclei` → ready-to-paste output
-- `--paths-only` → just the path (perfect for `-u https://target.com/FUZZ`)
+## 📖 Documentation & Usage
 
-**Available modes** (use `--mode <name>`):
-- `sample` (default) – fast & obvious paths
-- `child` – direct children only
-- `rare` – hidden gems where are you?
-- `beam` – deterministic & highest confidence
-- `diverse` – broad coverage across subtrees
-- `deep` – long nested paths
+Adyant is highly tunable. You can adjust the Markov context (`--context`), control rarity (`--rarity`), and format outputs to include explicit confidence scores (`--scores`).
 
-Run `adyant --help` for the short version or see **[wiki.md](wiki.md)** for everything else.
+For advanced configurations, saving/loading models, and a detailed breakdown of all generation modes, please refer to the official documentation:
+
+👉 **Read the full Adyant Wiki**
+
+## 🤝 Community & Support
+
+-   **Issues & Bugs:** Encountered an error? Please [open an issue](https://github.com/forshaur/adyant/issues).
+    
+-   **Research:** This project is backed by ongoing security research, which will be published and linked here shortly.
+    
+
+> ⭐️ **Don't forget to star it so that you may use it later.**

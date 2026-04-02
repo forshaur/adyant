@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "adyant"
-version = "1.0.1"
+version = "1.0.4"
 description = "Markov chain URL wordlist generator for security research and fuzzing pipelines"
 readme = "README.md"
 license = { text = "MIT" }
