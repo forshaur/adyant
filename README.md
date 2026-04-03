@@ -24,6 +24,9 @@ If you want to find hidden endpoints with fewer requests and less noise, you're 
   <img src="https://github.com/user-attachments/assets/75cbe049-1b67-4813-ab48-f9f034f8eef9" alt="Adyant Demo" width="700">
 </p>
 
+> **Remeber: Garbage in = Garbage out; feed it well.** the model shown above was trained on a courpus of randomly collected URLs from bigquery. Use your own.
+
+
 we're taking log of probabilities, so the result is a negative value, don't worry about it.
 
 
