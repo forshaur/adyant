@@ -16,3 +16,5 @@ README.md
 build/
 dist/
 *.egg-info/
+
+Adyant.code-workspace
