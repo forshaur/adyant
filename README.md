@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/260131d0-ec6e-4e4a-81d0-6dd6401710c6" alt="Adyant Logo" width="400">
+  <img src="https://github.com/user-attachments/assets/509909a7-ca19-4ae9-837b-fddaeb9a142f" alt="Adyant Logo" width="400">
 </p>
 
 <h1 align="center">Adyant</h1>
@@ -37,7 +37,7 @@ Get Adyant running locally in under 30 seconds.
 ```bash
 pip install adyant
 ```
-or we recommend you to clone the repo because we've included a training corpus and a model for testing purpose.
+**Recommended**
 ```bash
 git clone https://github.com/forshaur/adyant.git
 cd adyant
