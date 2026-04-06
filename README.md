@@ -8,11 +8,12 @@
   <strong>Smart Markov-chain URL wordlist generator for fuzzing and recon.</strong>
 </p>
 
-<p align="center">[![PyPI Downloads](https://static.pepy.tech/personalized-badge/adyant?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/adyant)
+<p align="center">
   <a href="https://pypi.org/project/adyant/"><img src="https://img.shields.io/pypi/v/adyant" alt="PyPI"></a>
   <a href="https://github.com/forshaur/adyant/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://github.com/forshaur/adyant"><img src="https://img.shields.io/badge/Python-3.10%2B-brightgreen" alt="Python 3.10+"></a>
 </p>
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/adyant?period=total&units=NONE&left_color=GREY&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/aarya)
 
 <br>
 
